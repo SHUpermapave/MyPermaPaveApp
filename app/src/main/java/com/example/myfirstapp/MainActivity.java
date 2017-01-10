@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         bottomView.setTypeface(textFont);
     }
     public void contact(View view) {
-        Intent intent = new Intent(this, Contact_Us.class);
+        Intent intent = new Intent(this, contactUs.class);
         startActivity(intent);
     }
     public void request(View view) {
-        Intent intent = new Intent(this, request_sample.class);
+        Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);
     }
 }

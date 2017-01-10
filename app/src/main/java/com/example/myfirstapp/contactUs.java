@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.view.View;
 import android.net.Uri;
 
-public class Contact_Us extends AppCompatActivity {
+public class contactUs extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Contact_Us" />
-        <activity android:name=".request_sample"></activity>
+        <activity android:name=".contactUs" />
+        <activity android:name=".requestSample"></activity>
     </application>
 
 </manifest>

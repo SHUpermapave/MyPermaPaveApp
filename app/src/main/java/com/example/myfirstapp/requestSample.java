@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class request_sample extends AppCompatActivity {
+public class requestSample extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
