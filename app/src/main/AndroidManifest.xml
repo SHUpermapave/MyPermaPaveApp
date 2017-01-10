@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".contactUs" />
-        <activity android:name=".requestSample"></activity>
+        <activity android:name=".requestSample" />
+        <activity android:name=".requestSamplePage2"></activity>
     </application>
 
 </manifest>
