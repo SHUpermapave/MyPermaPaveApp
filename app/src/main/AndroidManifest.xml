@@ -20,7 +20,7 @@
 
         <activity android:name=".contactUs" android:screenOrientation="portrait"/>
         <activity android:name=".requestSample" android:screenOrientation="portrait"/>
-        <activity android:name=".requestSamplePage2 "android:screenOrientation="portrait"></activity>
+        <activity android:name=".requestSamplePage2" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
