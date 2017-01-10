@@ -1,6 +1,11 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,24 +13,39 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class visualizerDrawArea extends AppCompatActivity {
 
-    EditText cord;
-    EditText area;
+    private List<Point> areaPoints = new ArrayList<Point>();
+    private Paint paint = new Paint();
+    private Canvas canvas;
+    private Bitmap bmp;
+    private ImageView imgCircle;
+    private EditText coor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_draw_area);
 
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.STROKE);
+
+        bmp = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
+
+        canvas = new Canvas(bmp);
+
+        imgCircle = (ImageView)findViewById(R.id.circle);
+
+        coor = (EditText)findViewById(R.id.textView);
+
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
 
-        cord = (EditText)findViewById(R.id.textView);
-        cord.setText("No Click");
-        area = (EditText)findViewById(R.id.textView2);
-        area.setText("No Click");
         Button backButton = (Button)findViewById(R.id.backButton);
         Button selectButton = (Button)findViewById(R.id.selectButton);
 
@@ -35,16 +55,14 @@ public class visualizerDrawArea extends AppCompatActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if(event.getAction() == MotionEvent.ACTION_UP) {
-            int x = Math.round((int)event.getX());
-            int y = Math.round((int)event.getX());
-
-            String text = "You click at x = " + x + " and y = " + y;
-            cord.setText(text);
-            if (x > 200){
-                text = "below 200";
-                area.setText(text);
+            int x = (int)event.getX();
+            int y = (int)event.getY();
+            String text = "x:" + x + " y:" + y;
+            coor.setText(text);
+            if (y >= 445 && y <= 1225){
+                canvas.drawCircle(x, y, 50, paint);
+                imgCircle.setImageBitmap(bmp);
             }
-
         }
         return super.onTouchEvent(event);
     }
@@ -55,5 +73,11 @@ public class visualizerDrawArea extends AppCompatActivity {
     public void next(View view) {
         Intent intent = new Intent(this, visualizerPickColour.class);
         startActivity(intent);
+    }
+    public void draw(Canvas canvas){
+        paint.setColor(Color.GREEN);
+        for(Point point: areaPoints){
+            canvas.drawCircle(point.x, point.y, 20, paint);
+        }
     }
 }

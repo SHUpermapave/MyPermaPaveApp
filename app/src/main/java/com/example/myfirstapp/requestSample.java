@@ -15,9 +15,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class requestSample extends AppCompatActivity implements OnItemSelectedListener {
 
-    Spinner listViewColours;
-    ImageView selectedColour;
-    ArrayAdapter<CharSequence> adapter;
+    private Spinner listViewColours;
+    private ImageView selectedColour;
+    private ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
