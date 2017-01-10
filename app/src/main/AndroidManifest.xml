@@ -17,8 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".contactUs" android:screenOrientation="portrait"/>
         <activity android:name=".requestSample" android:screenOrientation="portrait"/>
+        <activity android:name=".requestSamplePage2 "android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
