@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.TextView;
 
 public class visualizerDrawArea extends AppCompatActivity {
 
@@ -26,6 +28,7 @@ public class visualizerDrawArea extends AppCompatActivity {
     private Bitmap bmp;
     private ImageView imgCircle;
     private EditText coor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,15 @@ public class visualizerDrawArea extends AppCompatActivity {
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button selectButton = (Button)findViewById(R.id.selectButton);
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
 
         backButton.setTypeface(buttonFont);
         selectButton.setTypeface(buttonFont);
@@ -79,5 +91,17 @@ public class visualizerDrawArea extends AppCompatActivity {
         for(Point point: areaPoints){
             canvas.drawCircle(point.x, point.y, 20, paint);
         }
+
+
+
+
+    public void goToWebsiteURL (View view) {
+        goToUrl ( "http://www.permapave.co.uk");
+    }
+
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 }

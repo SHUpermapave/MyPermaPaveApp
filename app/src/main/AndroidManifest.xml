@@ -6,7 +6,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Welcome to PermaPave"
+        android:label="PermaPave"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
@@ -28,8 +28,12 @@
         <activity
             android:name=".requestSamplePage2"
             android:screenOrientation="portrait" />
-        <activity android:name=".visualizerPickColour" />
-        <activity android:name=".visualizerDrawArea"></activity>
+        <activity
+            android:name=".visualizerPickColour"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".visualizerDrawArea"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
