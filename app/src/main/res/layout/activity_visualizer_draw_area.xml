@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.myfirstapp.MainActivity">
+    tools:context="com.example.myfirstapp.visualizerDrawArea">
 
     <TextView
         android:text=""
@@ -40,11 +40,30 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_height="45dp"  />
+        android:textSize="22sp"
+        android:layout_height="31dp" />
 
     <Button
-        android:text="Visualizer"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:id="@+id/backButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:onClick="back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:text="Select Area"
+        android:onClick="next"
         android:textAllCaps="false"
         android:id="@+id/selectButton"
         android:textSize="30sp"
@@ -53,62 +72,36 @@
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/logoBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_above="@+id/backButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:onClick="visualizer"/>
+        android:layout_marginBottom="20dp" />
 
-    <Button
-        android:text="Request Sample"
-        android:textAllCaps="false"
-        android:id="@+id/requestButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:onClick="request"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/selectButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
-    <Button
-        android:text="Tutorial"
-        android:textAllCaps="false"
-        android:id="@+id/tutorialButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/requestButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
-    <Button
-        android:text="Contact Us"
-        android:textAllCaps="false"
-        android:id="@+id/contactButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:onClick="contact"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/tutorialButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+    <EditText
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_below="@+id/logoBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        app:srcCompat="@drawable/driveway"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView"
+        android:layout_height="220dp" />
+
+    <EditText
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView2" />
+
 </RelativeLayout>

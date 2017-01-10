@@ -56,4 +56,8 @@ public class MainActivity extends AppCompatActivity {
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
+    public void visualizer (View view) {
+        Intent intent = new Intent(this, visualizerDrawArea.class);
+        startActivity(intent);
+    }
 }
