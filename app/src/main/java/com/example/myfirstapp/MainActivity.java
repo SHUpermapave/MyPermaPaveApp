@@ -38,4 +38,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);
     }
+    public void visualizer (View view) {
+        Intent intent = new Intent(this, visualizerDrawArea.class);
+        startActivity(intent);
+    }
 }

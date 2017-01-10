@@ -3,11 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.myfirstapp.MainActivity">
+    tools:context="com.example.myfirstapp.visualizerPickColour">
 
     <TextView
         android:text=""
@@ -44,7 +43,25 @@
         android:layout_height="31dp" />
 
     <Button
-        android:text="Visualizer"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:id="@+id/backButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:onClick="back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:text="Select Colour"
         android:textAllCaps="false"
         android:id="@+id/selectButton"
         android:textSize="30sp"
@@ -53,62 +70,64 @@
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/logoBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_above="@+id/backButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:onClick="visualizer"/>
+        android:layout_marginBottom="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ambergold"
+        android:id="@+id/selectedColour"
+        android:layout_below="@+id/logoBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="300dp" />
+
+    <Spinner
+        android:id="@+id/listViewColours"
+        android:layout_width="match_parent"
+        android:layout_alignBottom="@+id/selectButton"
+        android:layout_alignParentStart="true"
+        android:layout_height="40dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <Button
-        android:text="Request Sample"
+        android:text="&lt;"
         android:textAllCaps="false"
-        android:id="@+id/requestButton"
+        android:id="@+id/leftArrow"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:onClick="request"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/selectButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/listViewColours"
+        android:layout_alignStart="@+id/listViewColours"
+        android:layout_marginBottom="10dp"
+        android:layout_width="80dp"
+        android:onClick="left" />
+
     <Button
-        android:text="Tutorial"
+        android:text="&gt;"
         android:textAllCaps="false"
-        android:id="@+id/tutorialButton"
+        android:id="@+id/rightArrow"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
-        android:layout_width="881dp"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/requestButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
-    <Button
-        android:text="Contact Us"
-        android:textAllCaps="false"
-        android:id="@+id/contactButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:onClick="contact"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/tutorialButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_above="@+id/listViewColours"
+        android:layout_alignEnd="@+id/listViewColours"
+        android:layout_marginBottom="10dp"
+        android:onClick="right" />
+
 </RelativeLayout>

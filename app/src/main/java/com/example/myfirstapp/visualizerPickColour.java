@@ -2,8 +2,8 @@ package com.example.myfirstapp;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,9 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
 
-public class requestSample extends AppCompatActivity implements OnItemSelectedListener {
+public class visualizerPickColour extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner listViewColours;
     ImageView selectedColour;
@@ -22,7 +21,7 @@ public class requestSample extends AppCompatActivity implements OnItemSelectedLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_sample);
+        setContentView(R.layout.activity_visualizer_pick_colour);
 
         adapter = ArrayAdapter.createFromResource(
                 this, R.array.coloursArray,
@@ -41,17 +40,17 @@ public class requestSample extends AppCompatActivity implements OnItemSelectedLi
         Button backButton = (Button)findViewById(R.id.backButton);
         Button leftButton = (Button)findViewById(R.id.leftArrow);
         Button rightButton = (Button)findViewById(R.id.rightArrow);
-        Button requestButton = (Button)findViewById(R.id.requestButton);
+        Button selectButton = (Button)findViewById(R.id.selectButton);
 
         backButton.setTypeface(buttonFont);
-        requestButton.setTypeface(buttonFont);
+        selectButton.setTypeface(buttonFont);
         leftButton.setTypeface(textFont);
         rightButton.setTypeface(textFont);
         bottomView.setTypeface(textFont);
     }
 
     public void back(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, visualizerDrawArea.class);
         startActivity(intent);
     }
     public void left(View view) {
