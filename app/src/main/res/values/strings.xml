@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="website">www.permapave.co.uk</string>
+    <string name="address1">Units 1&amp;2 Carrwood Road</string>
+    <string name="address2">Chesterfield</string>
+    <string name="phone">01246 589010</string>
+    <string name="email">sales@permapave.co.uk</string>
+    <string name="colour_prompt">Please select a colour</string>
+</resources>
