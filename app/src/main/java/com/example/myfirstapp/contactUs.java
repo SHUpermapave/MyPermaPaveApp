@@ -25,7 +25,7 @@ public class contactUs extends AppCompatActivity {
         TextView address2View = (TextView)findViewById(R.id.address2);
         TextView phoneView = (TextView)findViewById(R.id.phone);
         TextView emailView = (TextView)findViewById(R.id.email);
-        final TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
             {
                 @Override
