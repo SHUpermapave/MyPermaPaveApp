@@ -26,6 +26,14 @@ public class contactUs extends AppCompatActivity {
         TextView phoneView = (TextView)findViewById(R.id.phone);
         TextView emailView = (TextView)findViewById(R.id.email);
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        bottomView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    goToWebsiteURL(v);
+                }
+            });
         Button backButton = (Button)findViewById(R.id.backButton);
         Button sendButton = (Button)findViewById(R.id.sendButton);
 
@@ -41,6 +49,10 @@ public class contactUs extends AppCompatActivity {
     public void back(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void goToWebsiteURL (View view) {
+        goToUrl ( "http://www.permapave.co.uk");
     }
 
     public void goToMessageURL (View view) {
