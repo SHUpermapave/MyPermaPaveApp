@@ -10,5 +10,4 @@ public class requestSamplePage2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_sample_page2);
     }
-
 }
