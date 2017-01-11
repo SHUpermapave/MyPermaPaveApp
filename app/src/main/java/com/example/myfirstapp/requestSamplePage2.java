@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class requestSamplePage2 extends AppCompatActivity {
     private Uri uri;
@@ -60,7 +62,8 @@ public class requestSamplePage2 extends AppCompatActivity {
         Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);
     }
-    public void requestSampleEmail(View view) {
+
+    public void sendEmail(View view) {
         String addressArray[] = {getString(R.string.companyEmail)};
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -86,6 +89,37 @@ public class requestSamplePage2 extends AppCompatActivity {
             Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
     }
+    public void requestSampleEmail(View view){
+        EditText postcode = (EditText) findViewById(R.id.postCodeEditText);
+        String postcodestr = postcode.getText().toString();
+        Pattern p = Pattern.compile("([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
+        Matcher m = p.matcher(postcodestr);
+        boolean b = m.matches();
+        EditText ad1 = (EditText) findViewById(R.id.address1EditText);
+        String ad1str = ad1.getText().toString();
+        EditText ad2 = (EditText) findViewById(R.id.address2EditText);
+        String ad2str = ad1.getText().toString();
+        EditText adpc = (EditText) findViewById(R.id.postCodeEditText);
+        String adpcstr = ad1.getText().toString();
+        EditText adname = (EditText) findViewById(R.id.nameEditText);
+        String adnamestr = ad1.getText().toString();
+
+        if (ad1str.isEmpty()| ad2str.isEmpty()|adnamestr.isEmpty() | adpcstr.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please fill all fields",Toast.LENGTH_SHORT).show();
+        }
+        else{
+                if (b) {
+                    sendEmail(view);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Please enter a valid postcode",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+
+
 
     public void setImage()
     {
