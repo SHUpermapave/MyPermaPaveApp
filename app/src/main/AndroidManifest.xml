@@ -34,8 +34,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".visualizerDrawArea"
-            android:screenOrientation="portrait" />
-        <activity android:name=".visualizerGetImage"></activity>
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".visualizerGetImage"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
