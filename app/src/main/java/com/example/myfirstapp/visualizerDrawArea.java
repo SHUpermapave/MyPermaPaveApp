@@ -73,8 +73,7 @@ public class visualizerDrawArea extends AppCompatActivity {
             coor.setText(text);
             if (y >= 445 && y <= 1225){
                 canvas.drawCircle(x, y, 50, paint);
-                imgCircle.setImageBitmap(bmp);
-            }
+                imgCircle.setImageBitmap(bmp);            }
         }
         return super.onTouchEvent(event);
     }
@@ -92,8 +91,6 @@ public class visualizerDrawArea extends AppCompatActivity {
             canvas.drawCircle(point.x, point.y, 20, paint);
         }
     }
-
-
 
 
     public void goToWebsiteURL (View view) {
