@@ -1,6 +1,7 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import android.widget.TextView;
 
 public class requestSamplePage2 extends AppCompatActivity {
@@ -18,6 +20,7 @@ public class requestSamplePage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_sample_page2);
+
 
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
@@ -30,6 +33,7 @@ public class requestSamplePage2 extends AppCompatActivity {
             colourName.setText(uri.toString());
             setImage();
         }
+
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
         {
@@ -39,6 +43,7 @@ public class requestSamplePage2 extends AppCompatActivity {
                 goToWebsiteURL(v);
             }
         });
+
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button requestButton = (Button)findViewById(R.id.requestButton);
@@ -122,6 +127,7 @@ public class requestSamplePage2 extends AppCompatActivity {
                 colourImage.setImageResource(R.drawable.ambergold);
                 break;
         }
+
     }
 
     public void goToWebsiteURL (View view) {

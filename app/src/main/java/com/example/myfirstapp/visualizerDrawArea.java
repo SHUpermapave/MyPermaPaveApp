@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -34,6 +35,16 @@ public class visualizerDrawArea extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_draw_area);
+
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
 
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.STROKE);

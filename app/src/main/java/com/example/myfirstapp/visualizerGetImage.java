@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class visualizerGetImage extends AppCompatActivity
@@ -25,6 +26,15 @@ public class visualizerGetImage extends AppCompatActivity
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button chooseButton = (Button)findViewById(R.id.chooseButton);
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
 
         backButton.setTypeface(buttonFont);
         chooseButton.setTypeface(buttonFont);
@@ -56,7 +66,7 @@ public class visualizerGetImage extends AppCompatActivity
 
             } else
             {
-                Toast.makeText(this, "You haven't picked Image",
+                Toast.makeText(this, "You haven't picked an image",
                         Toast.LENGTH_LONG).show();
             }
         } catch (Exception e)
@@ -69,5 +79,15 @@ public class visualizerGetImage extends AppCompatActivity
     public void back(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void goToWebsiteURL (View view) {
+        goToUrl ( "http://www.permapave.co.uk");
+    }
+
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 }

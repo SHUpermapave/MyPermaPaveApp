@@ -28,6 +28,23 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp" />
 
+
+
+    <TextView
+        android:text="@string/website"
+        android:layout_width="match_parent"
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FF9F23"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_height="45dp" />
+
+
     <Button
         android:text="Back"
         android:textAllCaps="false"
