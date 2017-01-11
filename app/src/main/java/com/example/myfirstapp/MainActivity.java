@@ -21,13 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button visualizerButton = (Button)findViewById(R.id.selectButton);
         Button requestButton = (Button)findViewById(R.id.requestButton);
-        Button tutorialButton = (Button)findViewById(R.id.tutorialButton);
         Button contactButton = (Button)findViewById(R.id.contactButton);
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
 
         visualizerButton.setTypeface(buttonFont);
         requestButton.setTypeface(buttonFont);
-        tutorialButton.setTypeface(buttonFont);
         contactButton.setTypeface(buttonFont);
         bottomView.setTypeface(textFont);
         bottomView.setOnClickListener(new View.OnClickListener()
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(launchBrowser);
     }
     public void visualizer (View view) {
-        Intent intent = new Intent(this, visualizerDrawArea.class);
+        Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);
     }
 }

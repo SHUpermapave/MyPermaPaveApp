@@ -78,22 +78,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"/>
-    <Button
-        android:text="Tutorial"
-        android:textAllCaps="false"
-        android:id="@+id/tutorialButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/requestButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+
     <Button
         android:text="Contact Us"
         android:textAllCaps="false"
@@ -106,7 +91,7 @@
         android:onClick="contact"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/tutorialButton"
+        android:layout_below="@+id/requestButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"
