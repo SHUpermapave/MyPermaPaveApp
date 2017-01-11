@@ -1,12 +1,8 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -14,33 +10,17 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 public class visualizerDrawArea extends AppCompatActivity {
 
-    private List<Point> areaPoints = new ArrayList<Point>();
-    private Paint paint = new Paint();
-    private Canvas canvas;
-    private Bitmap bmp;
-    private ImageView imgCircle;
-    private EditText coor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_draw_area);
-
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.STROKE);
-
-        bmp = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
-
-        canvas = new Canvas(bmp);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -50,32 +30,19 @@ public class visualizerDrawArea extends AppCompatActivity {
             imgView.setImageURI(uri);
         }
 
-        imgCircle = (ImageView)findViewById(R.id.circle);
-
-        coor = (EditText)findViewById(R.id.textView);
-
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
 
+        TextView connected = (TextView) findViewById(R.id.backButton);
         Button backButton = (Button)findViewById(R.id.backButton);
         Button selectButton = (Button)findViewById(R.id.selectButton);
 
+        connected.setText("Area Not Completed");
         backButton.setTypeface(buttonFont);
         selectButton.setTypeface(buttonFont);
+        selectButton.setEnabled(false);
     }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if(event.getAction() == MotionEvent.ACTION_UP) {
-            int x = (int)event.getX();
-            int y = (int)event.getY();
-            String text = "x:" + x + " y:" + y;
-            coor.setText(text);
-            if (y >= 445 && y <= 1225){
-                canvas.drawCircle(x, y, 50, paint);
-                imgCircle.setImageBitmap(bmp);            }
-        }
-        return super.onTouchEvent(event);
-    }
+
     public void back(View view) {
         Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);
@@ -84,14 +51,6 @@ public class visualizerDrawArea extends AppCompatActivity {
         Intent intent = new Intent(this, visualizerPickColour.class);
         startActivity(intent);
     }
-    public void draw(Canvas canvas){
-        paint.setColor(Color.GREEN);
-        for(Point point: areaPoints){
-            canvas.drawCircle(point.x, point.y, 20, paint);
-        }
-    }
-
-
 
     public void goToWebsiteURL (View view) {
         goToUrl ( "http://www.permapave.co.uk");
