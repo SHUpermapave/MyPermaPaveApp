@@ -10,7 +10,6 @@
     <string name="colour_prompt">Please select a colour</string>
     <string name="companyEmail">apppermapave@gmail.com</string>
     <string name="sampleRequestEmailSubject">SAMPLE REQUEST</string>
-    <string name="delete">email@email.com</string>
 
     <string-array name="coloursArray">
         <item>Amber Gold</item>

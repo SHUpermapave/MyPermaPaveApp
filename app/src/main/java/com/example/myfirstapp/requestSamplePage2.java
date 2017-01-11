@@ -61,29 +61,25 @@ public class requestSamplePage2 extends AppCompatActivity {
         startActivity(intent);
     }
     public void requestSampleEmail(View view) {
+        String addressArray[] = {getString(R.string.companyEmail)};
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("message/rfc822");
 //        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
 
         TextView colourName = (TextView) findViewById(R.id.textView);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
-        emailIntent.putExtra(Intent.EXTRA_EMAIL , getString(R.string.delete));
-        emailIntent.putExtra(Intent.EXTRA_CC, getString(R.string.delete));
 
-        /*
         ArrayList<String> values = new ArrayList<String>();
         int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
-
+        String body = "";
         for(int id : ids){
             EditText t = (EditText) findViewById(id);
-            values.add(t.getText().toString());
-            values.add("\n");
+            body += t.getText().toString();
+            body += "\n";
         }
-        */
-        //emailIntent.putExtra(Intent.EXTRA_TEXT   , values.toString());
-
-
+        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
