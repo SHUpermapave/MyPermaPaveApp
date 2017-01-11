@@ -63,6 +63,10 @@ public class requestSample extends AppCompatActivity implements OnItemSelectedLi
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    public void requestPage2(View view) {
+        Intent intent = new Intent(this, requestSamplePage2.class);
+        startActivity(intent);
+    }
     public void left(View view) {
         int position = adapter.getPosition(listViewColours.getSelectedItem().toString());
         if (position >= 1)
