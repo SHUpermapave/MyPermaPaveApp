@@ -65,6 +65,8 @@ public class requestSample extends AppCompatActivity implements OnItemSelectedLi
     }
     public void requestPage2(View view) {
         Intent intent = new Intent(this, requestSamplePage2.class);
+        Uri colour = Uri.parse(listViewColours.getSelectedItem().toString());
+        intent.setData(colour);
         startActivity(intent);
     }
     public void left(View view) {

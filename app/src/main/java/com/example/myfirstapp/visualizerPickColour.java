@@ -59,7 +59,7 @@ public class visualizerPickColour extends AppCompatActivity implements AdapterVi
     }
 
     public void back(View view) {
-        Intent intent = new Intent(this, visualizerDrawArea.class);
+        Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);
     }
     public void left(View view) {
