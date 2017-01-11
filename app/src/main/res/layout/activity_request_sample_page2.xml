@@ -28,6 +28,23 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp" />
 
+
+
+    <TextView
+        android:text="@string/website"
+        android:layout_width="match_parent"
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FF9F23"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_height="45dp" />
+
+
     <Button
         android:text="Back"
         android:textAllCaps="false"
@@ -56,6 +73,7 @@
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
         android:layout_height="50dp"
+        android:onClick="requestSampleEmail"
         android:layout_above="@+id/backButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -88,28 +106,29 @@
         android:layout_alignEnd="@+id/requestButton"
         android:layout_marginBottom="12dp" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="none|textEmailAddress"
         android:ems="10"
+        android:textSize="22sp"
         android:layout_below="@+id/logoBar"
         android:layout_alignStart="@+id/requestButton"
         android:layout_marginTop="16dp"
-        android:id="@+id/emailEditText"
+        android:id="@+id/titleEditText"
         android:layout_alignEnd="@+id/requestButton"
-        android:hint="Email" />
+        android:text="Please enter your address below." />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/emailEditText"
-        android:layout_alignStart="@+id/emailEditText"
+        android:layout_below="@+id/titleEditText"
+        android:layout_alignStart="@+id/titleEditText"
         android:id="@+id/nameEditText"
         android:hint="Name"
-        android:layout_alignEnd="@+id/emailEditText" />
+        android:layout_alignEnd="@+id/titleEditText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -118,7 +137,7 @@
         android:ems="10"
         android:layout_below="@+id/nameEditText"
         android:layout_alignStart="@+id/nameEditText"
-        android:id="@+id/address1EditName"
+        android:id="@+id/address1EditText"
         android:hint="Address Line 1"
         android:layout_alignEnd="@+id/nameEditText" />
 
@@ -127,10 +146,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/address1EditName"
-        android:layout_alignStart="@+id/address1EditName"
-        android:id="@+id/address2EditName"
-        android:layout_alignEnd="@+id/address1EditName"
+        android:layout_below="@+id/address1EditText"
+        android:layout_alignStart="@+id/address1EditText"
+        android:id="@+id/address2EditText"
+        android:layout_alignEnd="@+id/address1EditText"
         android:hint="Address Line 2" />
 
     <EditText
@@ -138,19 +157,19 @@
         android:layout_height="wrap_content"
         android:inputType="textNoSuggestions|textPersonName"
         android:ems="10"
-        android:layout_below="@+id/address2EditName"
-        android:layout_alignStart="@+id/address2EditName"
-        android:id="@+id/address3EditName"
+        android:layout_below="@+id/address2EditText"
+        android:layout_alignStart="@+id/address2EditText"
+        android:id="@+id/address3EditText"
         android:hint="Address Line 3"
-        android:layout_alignEnd="@+id/address2EditName" />
+        android:layout_alignEnd="@+id/address2EditText" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/address3EditName"
-        android:layout_alignStart="@+id/address3EditName"
+        android:layout_below="@+id/address3EditText"
+        android:layout_alignStart="@+id/address3EditText"
         android:id="@+id/postCodeEditText"
         android:hint="Post Code" />
 
@@ -164,18 +183,6 @@
         android:id="@+id/textView"
         android:layout_alignEnd="@+id/postCodeEditText"
         android:textSize="20sp" />
-    <TextView
-        android:text="@string/website"
-        android:layout_width="match_parent"
-        android:id="@+id/bottomBar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="#FF9F23"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_height="45dp"  />
+
 
 </RelativeLayout>

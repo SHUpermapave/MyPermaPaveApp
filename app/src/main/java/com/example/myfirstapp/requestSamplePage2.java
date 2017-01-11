@@ -1,14 +1,20 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class requestSamplePage2 extends AppCompatActivity {
     private Uri uri;
@@ -18,6 +24,7 @@ public class requestSamplePage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_sample_page2);
+
 
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
@@ -30,6 +37,7 @@ public class requestSamplePage2 extends AppCompatActivity {
             colourName.setText(uri.toString());
             setImage();
         }
+
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
         {
@@ -39,6 +47,7 @@ public class requestSamplePage2 extends AppCompatActivity {
                 goToWebsiteURL(v);
             }
         });
+
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button requestButton = (Button)findViewById(R.id.requestButton);
@@ -50,6 +59,32 @@ public class requestSamplePage2 extends AppCompatActivity {
     public void back(View view) {
         Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);
+    }
+    public void requestSampleEmail(View view) {
+        String addressArray[] = {getString(R.string.companyEmail)};
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("message/rfc822");
+//        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
+
+        TextView colourName = (TextView) findViewById(R.id.textView);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
+
+        ArrayList<String> values = new ArrayList<String>();
+        int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
+        String body = "";
+        for(int id : ids){
+            EditText t = (EditText) findViewById(id);
+            body += t.getText().toString();
+            body += "\n";
+        }
+        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void setImage()
@@ -122,7 +157,10 @@ public class requestSamplePage2 extends AppCompatActivity {
                 colourImage.setImageResource(R.drawable.ambergold);
                 break;
         }
+
     }
+
+
 
     public void goToWebsiteURL (View view) {
         goToUrl ( "http://www.permapave.co.uk");

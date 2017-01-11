@@ -19,6 +19,24 @@ public class visualizerDrawArea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_draw_area);
 
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
+
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.STROKE);
+
+        bmp = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
+
+        canvas = new Canvas(bmp);
+
+
         Intent intent = getIntent();
         if (intent != null) {
             Uri uri = intent.getData();
