@@ -86,11 +86,12 @@ public class visualizerDrawArea extends AppCompatActivity {
         Intent intent = new Intent(this, visualizerPickColour.class);
         startActivity(intent);
     }
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas) {
         paint.setColor(Color.GREEN);
-        for(Point point: areaPoints){
+        for (Point point : areaPoints) {
             canvas.drawCircle(point.x, point.y, 20, paint);
         }
+    }
 
 
 
