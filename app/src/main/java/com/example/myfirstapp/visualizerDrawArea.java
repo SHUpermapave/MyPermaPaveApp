@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Canvas;
@@ -16,9 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import android.widget.TextView;
 
 public class visualizerDrawArea extends AppCompatActivity {
 
@@ -28,7 +29,6 @@ public class visualizerDrawArea extends AppCompatActivity {
     private Bitmap bmp;
     private ImageView imgCircle;
     private EditText coor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,14 @@ public class visualizerDrawArea extends AppCompatActivity {
 
         canvas = new Canvas(bmp);
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            Uri uri = intent.getData();
+
+            ImageView imgView = (ImageView) findViewById(R.id.imageView);
+            imgView.setImageURI(uri);
+        }
+
         imgCircle = (ImageView)findViewById(R.id.circle);
 
         coor = (EditText)findViewById(R.id.textView);
@@ -51,15 +59,6 @@ public class visualizerDrawArea extends AppCompatActivity {
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button selectButton = (Button)findViewById(R.id.selectButton);
-        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
-        bottomView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                goToWebsiteURL(v);
-            }
-        });
 
         backButton.setTypeface(buttonFont);
         selectButton.setTypeface(buttonFont);
@@ -79,30 +78,17 @@ public class visualizerDrawArea extends AppCompatActivity {
         return super.onTouchEvent(event);
     }
     public void back(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);
     }
     public void next(View view) {
         Intent intent = new Intent(this, visualizerPickColour.class);
         startActivity(intent);
     }
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas){
         paint.setColor(Color.GREEN);
-        for (Point point : areaPoints) {
+        for(Point point: areaPoints){
             canvas.drawCircle(point.x, point.y, 20, paint);
         }
-    }
-
-
-
-
-    public void goToWebsiteURL (View view) {
-        goToUrl ( "http://www.permapave.co.uk");
-    }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-        startActivity(launchBrowser);
     }
 }
