@@ -15,8 +15,8 @@ public class drawFullView extends View{
 
     private Bitmap fillBMP;
 
-    private Paint paint = new Paint();
-    private Path path = globalVars.getInstance().getFullPath();
+    private final Paint paint = new Paint();
+    private final Path path = globalVars.getInstance().getFullPath();
 
     public drawFullView(Context ctx, AttributeSet attrs){
         super(ctx, attrs);

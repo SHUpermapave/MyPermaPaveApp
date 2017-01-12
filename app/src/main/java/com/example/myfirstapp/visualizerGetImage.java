@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class visualizerGetImage extends AppCompatActivity
 {
-    private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

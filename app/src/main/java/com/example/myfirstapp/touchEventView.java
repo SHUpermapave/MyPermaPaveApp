@@ -11,9 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class touchEventView extends View {
-    private Paint paint = new Paint();
-    private Path path = new Path();
-    private Path fullPath = new Path();
+    private final Paint paint = new Paint();
+    private final Path path = new Path();
+    private final Path fullPath = new Path();
     private boolean first = true;
     private int lines = 0;
     private float xStart;
