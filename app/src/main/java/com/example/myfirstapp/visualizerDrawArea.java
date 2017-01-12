@@ -78,11 +78,7 @@ public class visualizerDrawArea extends AppCompatActivity {
     }
 
     public void goToWebsiteURL (View view) {
-        goToUrl ( "http://www.permapave.co.uk");
-    }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
+        Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
