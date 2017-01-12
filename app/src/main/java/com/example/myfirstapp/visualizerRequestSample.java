@@ -1,7 +1,6 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
-
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +16,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class requestSamplePage2 extends AppCompatActivity {
-    private Uri uri;
+public class visualizerRequestSample extends AppCompatActivity {
+
     private ImageView colourImage;
 
     @Override
@@ -31,14 +29,11 @@ public class requestSamplePage2 extends AppCompatActivity {
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            uri = intent.getData();
-            TextView colourName = (TextView) findViewById(R.id.textView);
-            colourImage = (ImageView) findViewById(R.id.selectedColour);
-            colourName.setText(uri.toString());
-            setImage();
-        }
+
+        TextView colourName = (TextView) findViewById(R.id.textView);
+        colourImage = (ImageView) findViewById(R.id.selectedColour);
+        colourName.setText(globalVars.getInstance().getSelectedColour());
+        setImage();
 
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
@@ -59,7 +54,9 @@ public class requestSamplePage2 extends AppCompatActivity {
         bottomView.setTypeface(textFont);
     }
     public void back(View view) {
-        Intent intent = new Intent(this, requestSample.class);
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerViewProduct.class);
+        intent.setData(intentData.getData());
         startActivity(intent);
     }
 
@@ -86,7 +83,7 @@ public class requestSamplePage2 extends AppCompatActivity {
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(visualizerRequestSample.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
     }
     public void requestSampleEmail(View view){
@@ -108,20 +105,20 @@ public class requestSamplePage2 extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please fill all fields",Toast.LENGTH_SHORT).show();
         }
         else{
-                if (b) {
-                    sendEmail(view);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Please enter a valid postcode",Toast.LENGTH_SHORT).show();
-                }
+            if (b) {
+                sendEmail(view);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "Please enter a valid postcode",Toast.LENGTH_SHORT).show();
             }
         }
+    }
 
     public void setImage()
     {
 
-        switch(uri.toString())
+        switch(globalVars.getInstance().getSelectedColour())
         {
             case "Amber Gold":
                 colourImage.setImageResource(R.drawable.ambergold);
@@ -190,8 +187,6 @@ public class requestSamplePage2 extends AppCompatActivity {
         }
 
     }
-
-
 
     public void goToWebsiteURL (View view) {
         goToUrl ( "http://www.permapave.co.uk");

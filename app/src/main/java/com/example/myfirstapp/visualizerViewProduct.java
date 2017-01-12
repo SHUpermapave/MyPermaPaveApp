@@ -39,10 +39,12 @@ public class visualizerViewProduct extends AppCompatActivity {
         });
         Button backButton = (Button)findViewById(R.id.backButton);
         Button requestButton = (Button)findViewById(R.id.requestButton);
-        Button editButton = (Button)findViewById(R.id.editButton);
+        Button editAreaButton = (Button)findViewById(R.id.editAreaButton);
+        Button editColourButton = (Button)findViewById(R.id.editColourButton);
         Button imageButton = (Button)findViewById(R.id.imageButton);
 
-        editButton.setTypeface(buttonFont);
+        editAreaButton.setTypeface(buttonFont);
+        editColourButton.setTypeface(buttonFont);
         imageButton.setTypeface(buttonFont);
         requestButton.setTypeface(buttonFont);
         backButton.setTypeface(buttonFont);
@@ -55,14 +57,20 @@ public class visualizerViewProduct extends AppCompatActivity {
     }
 
     public void request(View view) {
-        //Intent intent = new Intent(this, visualizerRequestSamplePage2.class);
-        //Intent intent = new Intent(this, visualizerDrawArea.class);
-        //intent.setData(intentData.getData());
-        //startActivity(intent);
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerRequestSample.class);
+        intent.setData(intentData.getData());
+        startActivity(intent);
     }
-    public void edit(View view) {
+    public void editArea(View view) {
         Intent intentData = getIntent();
         Intent intent = new Intent(this, visualizerDrawArea.class);
+        intent.setData(intentData.getData());
+        startActivity(intent);
+    }
+    public void editColour(View view) {
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerPickColour.class);
         intent.setData(intentData.getData());
         startActivity(intent);
     }

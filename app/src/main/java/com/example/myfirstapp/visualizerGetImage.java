@@ -76,7 +76,6 @@ public class visualizerGetImage extends AppCompatActivity
                     && null != data) {
 
                 Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
                 Intent intent = new Intent(this, visualizerDrawArea.class);
                 intent.setData(selectedImage);
