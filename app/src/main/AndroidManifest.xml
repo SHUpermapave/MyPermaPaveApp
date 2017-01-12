@@ -44,6 +44,7 @@
         <activity
             android:name=".visualizerViewProduct"
             android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

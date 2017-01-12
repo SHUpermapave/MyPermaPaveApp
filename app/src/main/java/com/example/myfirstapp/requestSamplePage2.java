@@ -1,14 +1,22 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class requestSamplePage2 extends AppCompatActivity {
     private Uri uri;
@@ -18,6 +26,7 @@ public class requestSamplePage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_sample_page2);
+
 
         Typeface buttonFont = Typeface.createFromAsset(getAssets(), "fonts/Cuprum-Regular.ttf");
         Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
@@ -30,6 +39,7 @@ public class requestSamplePage2 extends AppCompatActivity {
             colourName.setText(uri.toString());
             setImage();
         }
+
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
         {
@@ -39,6 +49,7 @@ public class requestSamplePage2 extends AppCompatActivity {
                 goToWebsiteURL(v);
             }
         });
+
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button requestButton = (Button)findViewById(R.id.requestButton);
@@ -51,6 +62,64 @@ public class requestSamplePage2 extends AppCompatActivity {
         Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);
     }
+
+    public void sendEmail(View view) {
+        String addressArray[] = {getString(R.string.companyEmail)};
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("message/rfc822");
+//        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
+
+        TextView colourName = (TextView) findViewById(R.id.textView);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
+
+        ArrayList<String> values = new ArrayList<String>();
+        int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
+        String body = "";
+        for(int id : ids){
+            EditText t = (EditText) findViewById(id);
+            body += t.getText().toString();
+            body += "\n";
+        }
+        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void requestSampleEmail(View view){
+        EditText postcode = (EditText) findViewById(R.id.postCodeEditText);
+        String postcodestr = postcode.getText().toString();
+        Pattern p = Pattern.compile("([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
+        Matcher m = p.matcher(postcodestr);
+        boolean b = m.matches();
+        EditText ad1 = (EditText) findViewById(R.id.address1EditText);
+        String ad1str = ad1.getText().toString();
+        EditText ad2 = (EditText) findViewById(R.id.address2EditText);
+        String ad2str = ad1.getText().toString();
+        EditText adpc = (EditText) findViewById(R.id.postCodeEditText);
+        String adpcstr = ad1.getText().toString();
+        EditText adname = (EditText) findViewById(R.id.nameEditText);
+        String adnamestr = ad1.getText().toString();
+
+        if (ad1str.isEmpty()| ad2str.isEmpty()|adnamestr.isEmpty() | adpcstr.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please fill all fields",Toast.LENGTH_SHORT).show();
+        }
+        else{
+                if (b) {
+                    sendEmail(view);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Please enter a valid postcode",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+
+
 
     public void setImage()
     {
@@ -122,7 +191,10 @@ public class requestSamplePage2 extends AppCompatActivity {
                 colourImage.setImageResource(R.drawable.ambergold);
                 break;
         }
+
     }
+
+
 
     public void goToWebsiteURL (View view) {
         goToUrl ( "http://www.permapave.co.uk");
