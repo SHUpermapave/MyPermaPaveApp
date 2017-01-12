@@ -55,9 +55,9 @@ public class visualizerViewProduct extends AppCompatActivity {
     }
 
     public void request(View view) {
-        //Intent intent = new Intent(this, requestSamplePage2.class);
-        //Uri colour = Uri.parse(listViewColours.getSelectedItem().toString());
-        //intent.setData(colour);
+        //Intent intent = new Intent(this, visualizerRequestSamplePage2.class);
+        //Intent intent = new Intent(this, visualizerDrawArea.class);
+        //intent.setData(intentData.getData());
         //startActivity(intent);
     }
     public void edit(View view) {

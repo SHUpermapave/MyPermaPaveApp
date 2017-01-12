@@ -66,6 +66,7 @@ public class visualizerPickColour extends AppCompatActivity implements AdapterVi
     }
 
     public void next(View view) {
+        globalVars.getInstance().setSelectedColour(listViewColours.getSelectedItem().toString());
         Intent intentData = getIntent();
         Intent intent = new Intent(this, visualizerViewProduct.class);
         intent.setData(intentData.getData());
