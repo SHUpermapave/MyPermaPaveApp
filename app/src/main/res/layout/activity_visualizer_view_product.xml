@@ -86,8 +86,8 @@
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
         android:onClick="editArea"
-        android:layout_marginRight="145dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginRight="140dp"
+        android:layout_marginLeft="140dp"
         android:layout_height="42dp"
         android:layout_above="@+id/requestButton"
         android:layout_alignParentStart="true"
@@ -103,7 +103,7 @@
         style="@style/Widget.AppCompat.Button"
         android:onClick="editColour"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="270dp"
+        android:layout_marginLeft="260dp"
         android:layout_height="42dp"
         android:layout_above="@+id/requestButton"
         android:layout_alignParentStart="true"
@@ -119,7 +119,7 @@
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
         android:onClick="image"
-        android:layout_marginRight="270dp"
+        android:layout_marginRight="260dp"
         android:layout_marginLeft="15dp"
         android:layout_height="42dp"
         android:layout_above="@+id/requestButton"
@@ -148,7 +148,7 @@
         android:layout_height="220dp"
         android:layout_width="384dp"
         android:layout_alignTop="@+id/drawView"
-        android:layout_alignEnd="@+id/fullButton" />
+        android:layout_centerHorizontal="true" />
 
     <com.example.myfirstapp.drawView
         android:layout_width="384dp"

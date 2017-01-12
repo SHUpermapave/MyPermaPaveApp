@@ -16,7 +16,6 @@ public class visualizerFullScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_full_screen);
 
-        Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Arial.ttf");
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -26,14 +25,5 @@ public class visualizerFullScreen extends AppCompatActivity {
             imgView.setImageURI(uri);
         }
 
-        TextView colourName = (TextView) findViewById(R.id.colour);
-        colourName.setText(globalVars.getInstance().getSelectedColour());
-        colourName.setTypeface(textFont);
-    }
-    public void back(View view) {
-        Intent intentData = getIntent();
-        Intent intent = new Intent(this, visualizerViewProduct.class);
-        intent.setData(intentData.getData());
-        startActivity(intent);
     }
 }
