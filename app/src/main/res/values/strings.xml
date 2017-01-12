@@ -8,6 +8,8 @@
     <string name="phone">01246 589010</string>
     <string name="email">sales@permapave.co.uk</string>
     <string name="colour_prompt">Please select a colour</string>
+    <string name="companyEmail">apppermapave@gmail.com</string>
+    <string name="sampleRequestEmailSubject">SAMPLE REQUEST</string>
 
     <string-array name="coloursArray">
         <item>Amber Gold</item>

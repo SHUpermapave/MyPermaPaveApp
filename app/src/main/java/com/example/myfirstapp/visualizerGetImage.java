@@ -28,11 +28,22 @@ public class visualizerGetImage extends AppCompatActivity
         Button chooseButton = (Button)findViewById(R.id.chooseButton);
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
 
+
         TextView para1 = (TextView) findViewById(R.id.textView4);
         TextView para2 = (TextView) findViewById(R.id.textView5);
 
         para1.setTypeface(textFont);
         para2.setTypeface(textFont);
+
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
+
 
         backButton.setTypeface(buttonFont);
         chooseButton.setTypeface(buttonFont);
@@ -73,7 +84,7 @@ public class visualizerGetImage extends AppCompatActivity
 
             } else
             {
-                Toast.makeText(this, "You haven't picked Image",
+                Toast.makeText(this, "You haven't picked an image",
                         Toast.LENGTH_LONG).show();
             }
         } catch (Exception e)
@@ -87,6 +98,7 @@ public class visualizerGetImage extends AppCompatActivity
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
     public void goToWebsiteURL (View view) {
         goToUrl ( "http://www.permapave.co.uk");
     }

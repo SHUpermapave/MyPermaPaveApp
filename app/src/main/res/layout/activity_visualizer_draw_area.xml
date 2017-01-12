@@ -41,7 +41,8 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:layout_height="45dp"  />
+        android:layout_height="45dp"/>
+
 
     <Button
         android:text="Back"
