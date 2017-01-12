@@ -63,15 +63,10 @@ public class visualizerRequestSample extends AppCompatActivity {
     public void sendEmail(View view) {
         String addressArray[] = {getString(R.string.companyEmail)};
 
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setType("message/rfc822");
-//        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
-        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
+        Intent send = new Intent(Intent.ACTION_SENDTO);
 
         TextView colourName = (TextView) findViewById(R.id.textView);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
 
-        ArrayList<String> values = new ArrayList<String>();
         int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
         String body = "";
         for(int id : ids){
@@ -79,9 +74,14 @@ public class visualizerRequestSample extends AppCompatActivity {
             body += t.getText().toString();
             body += "\n";
         }
-        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
+        String uriText = "mailto:" + Uri.encode("apppermapave@gmail.com") +
+                "?subject=" + Uri.encode("SAMPLE REQUEST" + " " + colourName.getText()) +
+                "&body=" + Uri.encode(body);
+        Uri uri = Uri.parse(uriText);
+
+        send.setData(uri);
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(send, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(visualizerRequestSample.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
@@ -89,7 +89,7 @@ public class visualizerRequestSample extends AppCompatActivity {
     public void requestSampleEmail(View view){
         EditText postcode = (EditText) findViewById(R.id.postCodeEditText);
         String postcodestr = postcode.getText().toString();
-        Pattern p = Pattern.compile("([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
+        Pattern p = Pattern.compile("(?i)([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? ?[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA )($|\\s)");
         Matcher m = p.matcher(postcodestr);
         boolean b = m.matches();
         EditText ad1 = (EditText) findViewById(R.id.address1EditText);

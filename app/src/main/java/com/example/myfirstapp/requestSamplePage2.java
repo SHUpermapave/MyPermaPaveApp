@@ -92,7 +92,7 @@ public class requestSamplePage2 extends AppCompatActivity {
     public void requestSampleEmail(View view){
         EditText postcode = (EditText) findViewById(R.id.postCodeEditText);
         String postcodestr = postcode.getText().toString();
-        Pattern p = Pattern.compile("(?i)([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {0,1}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
+        Pattern p = Pattern.compile("(?i)([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? ?[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)($|\\s)");
         Matcher m = p.matcher(postcodestr);
         boolean b = m.matches();
         EditText ad1 = (EditText) findViewById(R.id.address1EditText);
