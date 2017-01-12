@@ -9,6 +9,7 @@ public class globalVars extends Application {
 
     private Path path;
     private String selectedColour;
+    private Boolean isArea = false;
 
     public Path getPath() {
         return path;
@@ -25,6 +26,15 @@ public class globalVars extends Application {
     public void setSelectedColour(String selectedColour) {
         this.selectedColour = selectedColour;
     }
+
+    public Boolean getIsArea(){
+        return isArea;
+    }
+
+    public void setIsArea(Boolean isArea){
+        this.isArea = isArea;
+    }
+
     public static synchronized globalVars getInstance(){
         if(instance==null){
             instance=new globalVars();

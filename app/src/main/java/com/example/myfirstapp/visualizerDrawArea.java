@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class visualizerDrawArea extends AppCompatActivity {
 
@@ -16,6 +17,8 @@ public class visualizerDrawArea extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer_draw_area);
+
+        globalVars.getInstance().setIsArea(false);
 
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
         bottomView.setOnClickListener(new View.OnClickListener()
@@ -57,10 +60,15 @@ public class visualizerDrawArea extends AppCompatActivity {
         startActivity(intent);
     }
     public void next(View view) {
-        Intent intentData = getIntent();
-        Intent intent = new Intent(this, visualizerPickColour.class);
-        intent.setData(intentData.getData());
-        startActivity(intent);
+        if ((globalVars.getInstance().getIsArea())) {
+            Intent intentData = getIntent();
+            Intent intent = new Intent(this, visualizerPickColour.class);
+            intent.setData(intentData.getData());
+            startActivity(intent);
+        } else
+        {
+            Toast.makeText(getApplicationContext(), "Please tap on image to create an area",Toast.LENGTH_SHORT).show();
+        }
     }
     public void reset(View view) {
         Intent intentData = getIntent();
