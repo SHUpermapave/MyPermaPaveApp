@@ -74,6 +74,12 @@ public class visualizerViewProduct extends AppCompatActivity {
         intent.setData(intentData.getData());
         startActivity(intent);
     }
+    public void full(View view) {
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerFullScreen.class);
+        intent.setData(intentData.getData());
+        startActivity(intent);
+    }
     public void image(View view) {
         Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);
