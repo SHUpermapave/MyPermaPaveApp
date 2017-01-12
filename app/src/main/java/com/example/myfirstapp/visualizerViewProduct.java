@@ -87,7 +87,7 @@ public class visualizerViewProduct extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToWebsiteURL (View view) {
+    private void goToWebsiteURL(View view) {
         Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);

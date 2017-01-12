@@ -59,7 +59,7 @@ public class visualizerRequestSample extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void sendEmail(View view) {
+    private void sendEmail(View view) {
 
         Intent send = new Intent(Intent.ACTION_SENDTO);
 
@@ -110,7 +110,7 @@ public class visualizerRequestSample extends AppCompatActivity {
         }
     }
 
-    public void setImage()
+    private void setImage()
     {
 
         switch(globalVars.getInstance().getSelectedColour())
@@ -183,7 +183,7 @@ public class visualizerRequestSample extends AppCompatActivity {
 
     }
 
-    public void goToWebsiteURL (View view) {
+    private void goToWebsiteURL(View view) {
         Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);

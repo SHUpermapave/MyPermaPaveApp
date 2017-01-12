@@ -35,7 +35,7 @@ public class drawFullView extends View{
         canvas.drawPath(path, paint);
     }
 
-    public void setImage()
+    private void setImage()
     {
         switch(globalVars.getInstance().getSelectedColour())
         {

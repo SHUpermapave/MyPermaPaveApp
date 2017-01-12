@@ -60,7 +60,7 @@ public class requestSamplePage2 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void sendEmail(View view) {
+    private void sendEmail(View view) {
 
 
         Intent send = new Intent(Intent.ACTION_SENDTO);
@@ -112,7 +112,7 @@ public class requestSamplePage2 extends AppCompatActivity {
             }
         }
 
-    public void setImage()
+    private void setImage()
     {
 
         switch(uri.toString())
@@ -187,7 +187,7 @@ public class requestSamplePage2 extends AppCompatActivity {
 
 
 
-    public void goToWebsiteURL (View view) {
+    private void goToWebsiteURL(View view) {
         Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
