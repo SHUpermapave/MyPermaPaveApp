@@ -15,6 +15,7 @@ import android.view.View;
 public class touchEventView extends View {
     private Paint paint = new Paint();
     private Path path = new Path();
+    private Path fullPath = new Path();
     private boolean first = true;
     private int lines = 0;
     private float xStart;
@@ -35,6 +36,7 @@ public class touchEventView extends View {
         canvas.drawPath(path, paint);
         canvas.drawCircle(xPos, yPos, 20, paint);
         globalVars.getInstance().setPath(path);
+        globalVars.getInstance().setFullPath(fullPath);
     }
 
     @Override
@@ -44,6 +46,7 @@ public class touchEventView extends View {
         if (first){
             if (event.getAction() == (MotionEvent.ACTION_UP)){
                 path.moveTo(xPos, yPos);
+                fullPath.moveTo((float)(xPos * 1.45), (float)(yPos * 1.45));
                 xStart = xPos;
                 yStart = yPos;
                 first = false;
@@ -54,9 +57,12 @@ public class touchEventView extends View {
                 if (((xPos < (xStart + 20)) && (xPos > (xStart - 20))) &&
                     ((yPos < (yStart + 20)) && (yPos > (yStart - 20)))) {
                     path.lineTo(xStart, yStart);
+                    fullPath.lineTo((float)(xStart * 1.45), (float)(yStart * 1.45));
                     path.close();
+                    fullPath.close();
                 } else {
                     path.lineTo(xPos, yPos);
+                    fullPath.lineTo((float)(xPos * 1.45), (float)(yPos * 1.45));
                     lines = lines + 1;
                 }
             }

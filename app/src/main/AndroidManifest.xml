@@ -46,7 +46,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".visualizerRequestSample"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".visualizerFullScreen"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

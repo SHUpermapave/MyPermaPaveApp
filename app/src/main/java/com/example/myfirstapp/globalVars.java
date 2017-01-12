@@ -8,6 +8,7 @@ public class globalVars extends Application {
     private static globalVars instance;
 
     private Path path;
+    private Path fullPath;
     private String selectedColour;
     private Boolean isArea = false;
 
@@ -17,6 +18,14 @@ public class globalVars extends Application {
 
     public void setPath(Path path) {
         this.path = path;
+    }
+
+    public Path getFullPath() {
+        return fullPath;
+    }
+
+    public void setFullPath(Path fullPath) {
+        this.fullPath = fullPath;
     }
 
     public String getSelectedColour() {
