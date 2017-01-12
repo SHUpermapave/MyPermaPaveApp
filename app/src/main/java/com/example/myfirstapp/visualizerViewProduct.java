@@ -42,12 +42,14 @@ public class visualizerViewProduct extends AppCompatActivity {
         Button editAreaButton = (Button)findViewById(R.id.editAreaButton);
         Button editColourButton = (Button)findViewById(R.id.editColourButton);
         Button imageButton = (Button)findViewById(R.id.imageButton);
+        Button largerButton = (Button)findViewById(R.id.fullButton);
 
         editAreaButton.setTypeface(buttonFont);
         editColourButton.setTypeface(buttonFont);
         imageButton.setTypeface(buttonFont);
         requestButton.setTypeface(buttonFont);
         backButton.setTypeface(buttonFont);
+        largerButton.setTypeface(buttonFont);
         bottomView.setTypeface(textFont);
     }
 
