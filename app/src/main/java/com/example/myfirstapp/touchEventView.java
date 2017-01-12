@@ -16,6 +16,7 @@ public class touchEventView extends View {
     private Paint paint = new Paint();
     private Path path = new Path();
     private boolean first = true;
+    private int lines = 0;
     private float xStart;
     private float yStart;
     private float xPos;
@@ -46,6 +47,7 @@ public class touchEventView extends View {
                 xStart = xPos;
                 yStart = yPos;
                 first = false;
+                lines = lines + 1;
             }
         } else {
             if (event.getAction() == (MotionEvent.ACTION_UP)) {
@@ -55,8 +57,13 @@ public class touchEventView extends View {
                     path.close();
                 } else {
                     path.lineTo(xPos, yPos);
+                    lines = lines + 1;
                 }
             }
+        }
+        if (lines > 2)
+        {
+            globalVars.getInstance().setIsArea(true);
         }
         invalidate();
         return true;
