@@ -27,6 +27,14 @@ public class visualizerGetImage extends AppCompatActivity
         Button backButton = (Button)findViewById(R.id.backButton);
         Button chooseButton = (Button)findViewById(R.id.chooseButton);
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+
+
+        TextView para1 = (TextView) findViewById(R.id.textView4);
+        TextView para2 = (TextView) findViewById(R.id.textView5);
+
+        para1.setTypeface(textFont);
+        para2.setTypeface(textFont);
+
         bottomView.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -36,8 +44,18 @@ public class visualizerGetImage extends AppCompatActivity
             }
         });
 
+
         backButton.setTypeface(buttonFont);
         chooseButton.setTypeface(buttonFont);
+        bottomView.setTypeface(textFont);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
     }
 
     public void loadImagefromGallery(View view)

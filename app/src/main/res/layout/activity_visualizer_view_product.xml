@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.myfirstapp.requestSample">
+    tools:context="com.example.myfirstapp.visualizerViewProduct">
 
     <TextView
         android:text=""
@@ -40,10 +40,18 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:layout_height="45dp"  />
+        android:layout_height="45dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imageView"
+        android:layout_height="220dp"
+        android:layout_below="@+id/logoBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
 
     <Button
-        android:text="Back"
+        android:text="Back to Home"
         android:textAllCaps="false"
         android:id="@+id/backButton"
         android:textSize="30sp"
@@ -51,14 +59,14 @@
         android:layout_width="881dp"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:onClick="back"
+        android:onClick="backHome"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="60dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_height="42dp" />
 
     <Button
         android:text="Request Sample"
@@ -69,66 +77,52 @@
         android:layout_width="881dp"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
+        android:onClick="request"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="42dp"
         android:layout_above="@+id/backButton"
-        android:onClick="requestPage2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="20dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ambergold"
-        android:id="@+id/selectedColour"
-        android:layout_below="@+id/logoBar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="300dp" />
-
-    <Spinner
-        android:id="@+id/listViewColours"
-        android:layout_width="match_parent"
-        android:layout_alignBottom="@+id/requestButton"
         android:layout_alignParentStart="true"
-        android:layout_height="40dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
-
+        android:layout_marginBottom="10dp" />
     <Button
-        android:text="&lt;"
+        android:text="Edit Area / Colour"
         android:textAllCaps="false"
-        android:id="@+id/leftArrow"
+        android:id="@+id/editButton"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
+        android:layout_width="881dp"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
+        android:onClick="edit"
         android:layout_marginRight="15dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/listViewColours"
-        android:layout_alignStart="@+id/listViewColours"
-        android:layout_marginBottom="10dp"
-        android:layout_width="80dp"
-        android:onClick="left" />
-
+        android:layout_marginLeft="15dp"
+        android:layout_height="42dp"
+        android:layout_above="@+id/requestButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
     <Button
-        android:text="&gt;"
+        android:text="Use Different Image"
         android:textAllCaps="false"
-        android:id="@+id/rightArrow"
+        android:id="@+id/imageButton"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
+        android:layout_width="881dp"
         android:background="@drawable/buttonshape"
         style="@style/Widget.AppCompat.Button"
-        android:layout_height="40dp"
-        android:layout_width="80dp"
-        android:layout_above="@+id/listViewColours"
-        android:layout_alignEnd="@+id/listViewColours"
-        android:layout_marginBottom="10dp"
-        android:onClick="right" />
+        android:onClick="image"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="42dp"
+        android:layout_above="@+id/editButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
+
+    <com.example.myfirstapp.drawView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/logoBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/drawView"/>
 
 </RelativeLayout>
