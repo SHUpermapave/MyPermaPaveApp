@@ -49,7 +49,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".visualizerFullScreen"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

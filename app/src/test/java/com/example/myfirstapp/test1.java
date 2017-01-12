@@ -5,10 +5,9 @@ package com.example.myfirstapp;
  */
 
 
-        import static org.junit.Assert.*;
+import org.junit.Test;
 
-        import org.junit.Test;
-        import
+import static org.junit.Assert.assertTrue;
 
 
 

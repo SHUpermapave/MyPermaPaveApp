@@ -16,8 +16,6 @@ public class drawFullView extends View{
     private Bitmap fillBMP;
     private BitmapShader fillBMPshader;
 
-    private String colourName = globalVars.getInstance().getSelectedColour();
-
     private Paint paint = new Paint();
     private Path path = globalVars.getInstance().getFullPath();
 

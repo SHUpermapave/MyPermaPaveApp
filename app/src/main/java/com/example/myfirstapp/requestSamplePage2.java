@@ -1,20 +1,17 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
-
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,7 +61,7 @@ public class requestSamplePage2 extends AppCompatActivity {
     }
 
     public void sendEmail(View view) {
-        String addressArray[] = {getString(R.string.companyEmail)};
+
 
         Intent send = new Intent(Intent.ACTION_SENDTO);
 

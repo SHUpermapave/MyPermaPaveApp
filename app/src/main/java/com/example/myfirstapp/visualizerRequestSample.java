@@ -3,8 +3,8 @@ package com.example.myfirstapp;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,7 +60,6 @@ public class visualizerRequestSample extends AppCompatActivity {
     }
 
     public void sendEmail(View view) {
-        String addressArray[] = {getString(R.string.companyEmail)};
 
         Intent send = new Intent(Intent.ACTION_SENDTO);
 
@@ -94,11 +92,8 @@ public class visualizerRequestSample extends AppCompatActivity {
         boolean b = m.matches();
         EditText ad1 = (EditText) findViewById(R.id.address1EditText);
         String ad1str = ad1.getText().toString();
-        EditText ad2 = (EditText) findViewById(R.id.address2EditText);
         String ad2str = ad1.getText().toString();
-        EditText adpc = (EditText) findViewById(R.id.postCodeEditText);
         String adpcstr = ad1.getText().toString();
-        EditText adname = (EditText) findViewById(R.id.nameEditText);
         String adnamestr = ad1.getText().toString();
 
         if (ad1str.isEmpty()| ad2str.isEmpty()|adnamestr.isEmpty() | adpcstr.isEmpty()) {

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Shader;
@@ -16,9 +15,6 @@ public class drawView extends View{
 
     private Bitmap fillBMP;
     private BitmapShader fillBMPshader;
-
-    private String colourName = globalVars.getInstance().getSelectedColour();
-
     private Paint paint = new Paint();
     private Path path = globalVars.getInstance().getPath();
 
