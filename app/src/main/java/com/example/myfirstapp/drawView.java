@@ -68,7 +68,7 @@ public class drawView extends View{
                 fillBMP = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.classic), 200, 200, false);
                 break;
             case "Dorset Gold":
-                fillBMP = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.dorsetgold), 200, 200, false);
+                fillBMP = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.dorsetgold), 150, 150, false);
                 break;
             case "Golden Pea":
                 fillBMP = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.goldenpea), 200, 200, false);

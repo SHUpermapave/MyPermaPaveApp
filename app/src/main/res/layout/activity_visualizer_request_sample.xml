@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.myfirstapp.visualizerRequestSample">
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logoBar"
+        android:background="#FF9F23"
+        android:layout_height="60dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/permapavelogowhite"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView4"
+        android:layout_alignBottom="@+id/logoBar"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+
+
+    <TextView
+        android:text="@string/website"
+        android:layout_width="match_parent"
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FF9F23"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_height="45dp" />
+
+
+    <Button
+        android:text="Back"
+        android:textAllCaps="false"
+        android:id="@+id/backButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:onClick="back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:text="Request Sample"
+        android:textAllCaps="false"
+        android:id="@+id/requestButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:onClick="requestSampleEmail"
+        android:layout_above="@+id/backButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <ImageView
+        app:srcCompat="@drawable/ambergold"
+        android:id="@+id/selectedColour"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerInParent="false"
+        android:longClickable="false"
+        android:nestedScrollingEnabled="false"
+        android:baselineAlignBottom="false"
+        android:layout_height="100dp"
+        android:duplicateParentState="false"
+        android:cropToPadding="false"
+        android:contextClickable="false"
+        android:clickable="false"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:minHeight="50dp"
+        android:minWidth="50dp"
+        android:layout_width="100dp"
+        android:layout_marginEnd="12dp"
+        android:layout_above="@+id/requestButton"
+        android:layout_alignEnd="@+id/requestButton"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="none|textEmailAddress"
+        android:ems="10"
+        android:textSize="22sp"
+        android:layout_below="@+id/logoBar"
+        android:layout_alignStart="@+id/requestButton"
+        android:layout_marginTop="16dp"
+        android:id="@+id/titleEditText"
+        android:layout_alignEnd="@+id/requestButton"
+        android:text="Please enter your address below." />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/titleEditText"
+        android:layout_alignStart="@+id/titleEditText"
+        android:id="@+id/nameEditText"
+        android:hint="Name"
+        android:layout_alignEnd="@+id/titleEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions|textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/nameEditText"
+        android:layout_alignStart="@+id/nameEditText"
+        android:id="@+id/address1EditText"
+        android:hint="Address Line 1"
+        android:layout_alignEnd="@+id/nameEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/address1EditText"
+        android:layout_alignStart="@+id/address1EditText"
+        android:id="@+id/address2EditText"
+        android:layout_alignEnd="@+id/address1EditText"
+        android:hint="Address Line 2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions|textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/address2EditText"
+        android:layout_alignStart="@+id/address2EditText"
+        android:id="@+id/address3EditText"
+        android:hint="(Optional) Address Line 3"
+        android:layout_alignEnd="@+id/address2EditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/address3EditText"
+        android:layout_alignStart="@+id/address3EditText"
+        android:hint="Post Code"
+        android:id="@+id/postCodeEditText" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignBottom="@+id/selectedColour"
+        android:layout_marginStart="21dp" />
+
+
+</RelativeLayout>

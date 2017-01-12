@@ -7,9 +7,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".globalVars"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name=".globalVars"
         android:label="PermaPave"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -43,8 +43,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".visualizerViewProduct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".visualizerRequestSample"
             android:screenOrientation="portrait"></activity>
-
     </application>
 
 </manifest>
