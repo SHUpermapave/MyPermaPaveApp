@@ -14,8 +14,8 @@ import android.view.View;
 public class drawView extends View{
 
     private Bitmap fillBMP;
-    private Paint paint = new Paint();
-    private Path path = globalVars.getInstance().getPath();
+    private final Paint paint = new Paint();
+    private final Path path = globalVars.getInstance().getPath();
 
     public drawView(Context ctx, AttributeSet attrs){
         super(ctx, attrs);
@@ -34,7 +34,7 @@ public class drawView extends View{
         canvas.drawPath(path, paint);
     }
 
-    public void setImage()
+    private void setImage()
     {
         switch(globalVars.getInstance().getSelectedColour())
         {

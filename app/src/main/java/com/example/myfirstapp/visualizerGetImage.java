@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class visualizerGetImage extends AppCompatActivity
 {
-    private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,12 +96,8 @@ public class visualizerGetImage extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void goToWebsiteURL (View view) {
-        goToUrl ( "http://www.permapave.co.uk");
-    }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
+    private void goToWebsiteURL(View view) {
+        Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }

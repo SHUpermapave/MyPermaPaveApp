@@ -106,7 +106,7 @@ public class visualizerPickColour extends AppCompatActivity implements AdapterVi
 
     }
 
-    public void setImage()
+    private void setImage()
     {
         switch(listViewColours.getSelectedItem().toString())
         {
@@ -177,12 +177,8 @@ public class visualizerPickColour extends AppCompatActivity implements AdapterVi
         }
     }
 
-    public void goToWebsiteURL (View view) {
-        goToUrl ( "http://www.permapave.co.uk");
-    }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
+    private void goToWebsiteURL(View view) {
+        Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }

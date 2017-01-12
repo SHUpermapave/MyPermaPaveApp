@@ -49,15 +49,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, requestSample.class);
         startActivity(intent);}
 
-    public void goToWebsiteURL (View view) {
-        goToUrl ( "http://www.permapave.co.uk");
-    }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
+    private void goToWebsiteURL(View view) {
+        Uri uriUrl = Uri.parse("http://www.permapave.co.uk");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
+
     public void visualizer (View view) {
         Intent intent = new Intent(this, visualizerGetImage.class);
         startActivity(intent);

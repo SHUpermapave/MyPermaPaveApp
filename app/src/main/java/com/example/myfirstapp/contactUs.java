@@ -51,7 +51,7 @@ public class contactUs extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToWebsiteURL (View view) {
+    private void goToWebsiteURL(View view) {
         goToUrl ( "http://www.permapave.co.uk");
     }
 
