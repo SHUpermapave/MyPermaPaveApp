@@ -59,9 +59,19 @@ public class visualizerPickColour extends AppCompatActivity implements AdapterVi
     }
 
     public void back(View view) {
-        Intent intent = new Intent(this, visualizerGetImage.class);
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerDrawArea.class);
+        intent.setData(intentData.getData());
         startActivity(intent);
     }
+
+    public void next(View view) {
+        Intent intentData = getIntent();
+        Intent intent = new Intent(this, visualizerViewProduct.class);
+        intent.setData(intentData.getData());
+        startActivity(intent);
+    }
+
     public void left(View view) {
         int position = adapter.getPosition(listViewColours.getSelectedItem().toString());
         if (position >= 1)

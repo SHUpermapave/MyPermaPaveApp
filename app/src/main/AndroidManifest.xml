@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myfirstapp">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:name=".globalVars"
         android:label="PermaPave"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -35,7 +38,12 @@
         <activity
             android:name=".visualizerDrawArea"
             android:screenOrientation="portrait" />
-        <activity android:name=".visualizerGetImage"></activity>
+        <activity
+            android:name=".visualizerGetImage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".visualizerViewProduct"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

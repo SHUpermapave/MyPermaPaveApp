@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class visualizerGetImage extends AppCompatActivity
@@ -25,9 +26,25 @@ public class visualizerGetImage extends AppCompatActivity
 
         Button backButton = (Button)findViewById(R.id.backButton);
         Button chooseButton = (Button)findViewById(R.id.chooseButton);
+        TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+
+        TextView para1 = (TextView) findViewById(R.id.textView4);
+        TextView para2 = (TextView) findViewById(R.id.textView5);
+
+        para1.setTypeface(textFont);
+        para2.setTypeface(textFont);
 
         backButton.setTypeface(buttonFont);
         chooseButton.setTypeface(buttonFont);
+        bottomView.setTypeface(textFont);
+        bottomView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                goToWebsiteURL(v);
+            }
+        });
     }
 
     public void loadImagefromGallery(View view)
@@ -69,5 +86,14 @@ public class visualizerGetImage extends AppCompatActivity
     public void back(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+    public void goToWebsiteURL (View view) {
+        goToUrl ( "http://www.permapave.co.uk");
+    }
+
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 }

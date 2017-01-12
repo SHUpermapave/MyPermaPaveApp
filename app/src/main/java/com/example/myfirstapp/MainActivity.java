@@ -23,10 +23,14 @@ public class MainActivity extends AppCompatActivity {
         Button requestButton = (Button)findViewById(R.id.requestButton);
         Button contactButton = (Button)findViewById(R.id.contactButton);
         TextView bottomView = (TextView)findViewById(R.id.bottomBar);
+        TextView para1 = (TextView)findViewById(R.id.textView2);
+        TextView para2 = (TextView)findViewById(R.id.textView3);
 
         visualizerButton.setTypeface(buttonFont);
         requestButton.setTypeface(buttonFont);
         contactButton.setTypeface(buttonFont);
+        para1.setTypeface(textFont);
+        para2.setTypeface(textFont);
         bottomView.setTypeface(textFont);
         bottomView.setOnClickListener(new View.OnClickListener()
         {

@@ -43,41 +43,33 @@
         android:textSize="30sp"
         android:layout_height="45dp"  />
 
-    <Button
-        android:text="Visualizer"
-        android:textAllCaps="false"
-        android:id="@+id/selectButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/logoBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:onClick="visualizer"/>
+        android:text="By sourcing the best materials available on the UK market, PermaPave are able to supply a huge range of different colours, coupled with both UV-stable resin and non-UV resins, directly to your door. "
+        android:layout_below="@+id/textView3"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center" />
 
-    <Button
-        android:text="Request Sample"
-        android:textAllCaps="false"
-        android:id="@+id/requestButton"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:onClick="request"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/selectButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:text="PermaPave are a resin bound gravel merchant who supply high-quality washed and dried aggregates, resins binders and equipment to both trade and private customers. "
+        android:layout_below="@+id/logoBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center" />
 
     <Button
         android:text="Contact Us"
@@ -90,10 +82,43 @@
         style="@style/Widget.AppCompat.Button"
         android:onClick="contact"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/requestButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:layout_above="@+id/bottomBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:text="Request Sample"
+        android:textAllCaps="false"
+        android:id="@+id/requestButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:onClick="request"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_above="@+id/contactButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:text="Visualizer"
+        android:textAllCaps="false"
+        android:id="@+id/selectButton"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="881dp"
+        android:background="@drawable/buttonshape"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:onClick="visualizer"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/requestButton"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

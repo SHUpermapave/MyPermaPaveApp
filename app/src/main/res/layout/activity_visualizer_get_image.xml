@@ -40,8 +40,9 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="22sp"
-        android:layout_height="31dp" />
+        android:textSize="30sp"
+        android:layout_height="45dp"  />
+
 
     <Button
         android:text="Back"
@@ -78,4 +79,32 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:text="This is the page for the PermaPAVE visualiser. Please select an image in your photo gallery by selecting &quot;Choose Existing Image&quot;. Please ensure the image you use is landscape for the best results."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_below="@+id/logoBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text='**PLEASE NOTE** In order for this app to work you need to enable the correct permissions by going to "Settings > Apps > PermaPAVE > Permissions > Storage (ON)"'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:id="@+id/textView5"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center" />
 </RelativeLayout>
