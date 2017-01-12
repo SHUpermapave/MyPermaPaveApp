@@ -66,15 +66,10 @@ public class requestSamplePage2 extends AppCompatActivity {
     public void sendEmail(View view) {
         String addressArray[] = {getString(R.string.companyEmail)};
 
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setType("message/rfc822");
-//        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
-        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
+        Intent send = new Intent(Intent.ACTION_SENDTO);
 
         TextView colourName = (TextView) findViewById(R.id.textView);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
 
-        ArrayList<String> values = new ArrayList<>();
         int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
         String body = "";
         for(int id : ids){
@@ -82,9 +77,14 @@ public class requestSamplePage2 extends AppCompatActivity {
             body += t.getText().toString();
             body += "\n";
         }
-        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
+        String uriText = "mailto:" + Uri.encode("apppermapave@gmail.com") +
+                "?subject=" + Uri.encode("SAMPLE REQUEST" + " " + colourName.getText()) +
+                "&body=" + Uri.encode(body);
+        Uri uri = Uri.parse(uriText);
+
+        send.setData(uri);
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(send, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
