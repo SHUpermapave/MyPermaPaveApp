@@ -14,7 +14,6 @@ import android.view.View;
 public class drawView extends View{
 
     private Bitmap fillBMP;
-    private BitmapShader fillBMPshader;
     private Paint paint = new Paint();
     private Path path = globalVars.getInstance().getPath();
 
@@ -23,7 +22,7 @@ public class drawView extends View{
 
         setImage();
 
-        fillBMPshader = new BitmapShader(fillBMP, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+        BitmapShader fillBMPshader = new BitmapShader(fillBMP, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
 
         paint.setColor(0xFFFFFFFF);
         paint.setStyle(Paint.Style.FILL);
