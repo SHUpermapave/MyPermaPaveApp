@@ -66,15 +66,10 @@ public class requestSamplePage2 extends AppCompatActivity {
     public void sendEmail(View view) {
         String addressArray[] = {getString(R.string.companyEmail)};
 
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setType("message/rfc822");
-//        emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.companyEmail));
-        emailIntent.putExtra(Intent.EXTRA_EMAIL , addressArray);
+        Intent send = new Intent(Intent.ACTION_SENDTO);
 
         TextView colourName = (TextView) findViewById(R.id.textView);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.sampleRequestEmailSubject) + " " + colourName.getText());
 
-        ArrayList<String> values = new ArrayList<String>();
         int[] ids = new int[]{R.id.nameEditText,R.id.address1EditText,R.id.address2EditText,R.id.address3EditText,R.id.postCodeEditText};//and so on
         String body = "";
         for(int id : ids){
@@ -82,9 +77,14 @@ public class requestSamplePage2 extends AppCompatActivity {
             body += t.getText().toString();
             body += "\n";
         }
-        emailIntent.putExtra(Intent.EXTRA_TEXT   , body);
+        String uriText = "mailto:" + Uri.encode("apppermapave@gmail.com") +
+                "?subject=" + Uri.encode("SAMPLE REQUEST" + " " + colourName.getText()) +
+                "&body=" + Uri.encode(body);
+        Uri uri = Uri.parse(uriText);
+
+        send.setData(uri);
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(send, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(requestSamplePage2.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
@@ -92,19 +92,16 @@ public class requestSamplePage2 extends AppCompatActivity {
     public void requestSampleEmail(View view){
         EditText postcode = (EditText) findViewById(R.id.postCodeEditText);
         String postcodestr = postcode.getText().toString();
-        Pattern p = Pattern.compile("([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
+        Pattern p = Pattern.compile("(?i)([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {0,1}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)");
         Matcher m = p.matcher(postcodestr);
         boolean b = m.matches();
         EditText ad1 = (EditText) findViewById(R.id.address1EditText);
         String ad1str = ad1.getText().toString();
         EditText ad2 = (EditText) findViewById(R.id.address2EditText);
-        String ad2str = ad1.getText().toString();
-        EditText adpc = (EditText) findViewById(R.id.postCodeEditText);
-        String adpcstr = ad1.getText().toString();
+        String ad2str = ad2.getText().toString();
         EditText adname = (EditText) findViewById(R.id.nameEditText);
-        String adnamestr = ad1.getText().toString();
-
-        if (ad1str.isEmpty()| ad2str.isEmpty()|adnamestr.isEmpty() | adpcstr.isEmpty()) {
+        String adnamestr = adname.getText().toString();
+        if (ad1str.isEmpty()| ad2str.isEmpty()|adnamestr.isEmpty() | postcodestr.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please fill all fields",Toast.LENGTH_SHORT).show();
         }
         else{
