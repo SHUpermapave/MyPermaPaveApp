@@ -1,24 +1,15 @@
 package com.example.myfirstapp;
 
-/**
- * Created by Aran on 12/01/2017.
- */
-
-
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import junit.framework.*;
 
-import static org.junit.Assert.assertTrue;
-
-
-
-public class test1 {
+public class test1 extends TestCase {
 
     @Test
-    public void visualize() {
+    public void LeftView() throws Exception {
+         assertEquals(-1,true);
 
- //       assertTrue("Test Has passed ", );
     }
-
-
-
 }
+
