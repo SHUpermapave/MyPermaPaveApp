@@ -76,55 +76,61 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp" />
 
-    <Button
-        android:text="Edit Area"
-        android:textAllCaps="false"
-        android:id="@+id/editAreaButton"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:onClick="editArea"
-        android:layout_marginRight="140dp"
-        android:layout_marginLeft="140dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_above="@+id/requestButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
-    <Button
-        android:text="Edit Colour"
-        android:textAllCaps="false"
-        android:id="@+id/editColourButton"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:onClick="editColour"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="260dp"
-        android:layout_height="42dp"
-        android:layout_above="@+id/requestButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
-
-    <Button
-        android:text="Edit Image"
-        android:textAllCaps="false"
-        android:id="@+id/imageButton"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="881dp"
-        android:background="@drawable/buttonshape"
-        style="@style/Widget.AppCompat.Button"
-        android:onClick="image"
-        android:layout_marginRight="260dp"
         android:layout_marginLeft="15dp"
-        android:layout_height="42dp"
-        android:layout_above="@+id/requestButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:id="@+id/buttonTrilogy">
+
+        <Button
+            android:text="Edit Area"
+            android:textAllCaps="false"
+            android:id="@+id/editAreaButton"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            style="@style/Widget.AppCompat.Button"
+            android:onClick="editArea"
+            android:layout_height="match_parent"
+
+            />
+        <Button
+            android:text="Edit Colour"
+            android:textAllCaps="false"
+            android:id="@+id/editColourButton"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            style="@style/Widget.AppCompat.Button"
+            android:onClick="editColour"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <Button
+            android:text="Edit Image"
+            android:textAllCaps="false"
+            android:id="@+id/imageButton"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            style="@style/Widget.AppCompat.Button"
+            android:onClick="image"
+            android:layout_height="match_parent"
+
+            />
+    </LinearLayout>
 
     <Button
         android:text="View Larger Image"
@@ -139,7 +145,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_height="42dp"
-        android:layout_above="@+id/editAreaButton"
+        android:layout_above="@+id/buttonTrilogy"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp" />
 
