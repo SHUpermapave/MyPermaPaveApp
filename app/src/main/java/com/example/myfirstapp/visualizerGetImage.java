@@ -1,9 +1,13 @@
 package com.example.myfirstapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +17,7 @@ import android.widget.Toast;
 public class visualizerGetImage extends AppCompatActivity
 {
     private static final int RESULT_LOAD_IMG = 1;
+    private static final int  REQUEST_STORAGE = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +38,6 @@ public class visualizerGetImage extends AppCompatActivity
         para1.setTypeface(textFont);
         para2.setTypeface(textFont);
 
-        bottomView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                goToWebsiteURL(v);
-            }
-        });
-
-
         backButton.setTypeface(buttonFont);
         chooseButton.setTypeface(buttonFont);
         bottomView.setTypeface(textFont);
@@ -54,13 +49,22 @@ public class visualizerGetImage extends AppCompatActivity
                 goToWebsiteURL(v);
             }
         });
+
     }
 
     public void loadImagefromGallery(View view)
     {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    REQUEST_STORAGE);
+        } else
+        {
+            Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+        }
 
     }
 

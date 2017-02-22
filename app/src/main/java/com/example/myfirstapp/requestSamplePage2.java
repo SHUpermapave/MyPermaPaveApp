@@ -74,7 +74,7 @@ public class requestSamplePage2 extends AppCompatActivity {
             body += t.getText().toString();
             body += "\n";
         }
-        String uriText = "mailto:" + Uri.encode("apppermapave@gmail.com") +
+        String uriText = "mailto:" + Uri.encode("sales@permapave.co.uk") +
                 "?subject=" + Uri.encode("SAMPLE REQUEST" + " " + colourName.getText()) +
                 "&body=" + Uri.encode(body);
         Uri uri = Uri.parse(uriText);
