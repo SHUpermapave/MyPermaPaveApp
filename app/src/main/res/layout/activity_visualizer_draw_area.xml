@@ -110,18 +110,19 @@
         android:layout_marginRight="15dp" />
 
     <ImageView
-        android:layout_width="384dp"
+        android:layout_width="match_parent"
         android:id="@+id/imageView"
-        android:layout_height="220dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/prompt"
         android:layout_centerHorizontal="true" />
 
     <com.example.myfirstapp.touchEventView
-        android:layout_width="384dp"
-        android:layout_height="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/drawView"
         android:layout_alignTop="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        />
 
 </RelativeLayout>
