@@ -20,14 +20,6 @@ public class globalVars extends Application {
         this.path = path;
     }
 
-    public Path getFullPath() {
-        return fullPath;
-    }
-
-    public void setFullPath(Path fullPath) {
-        this.fullPath = fullPath;
-    }
-
     public String getSelectedColour() {
         return selectedColour;
     }
