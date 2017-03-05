@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/logoBar"
         android:background="#FF9F23"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
